@@ -1,0 +1,50 @@
+.home {
+    height: 100vh;
+    background: rgb(22, 22, 22);
+}
+
+
+.home-logo {
+    height: 70px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.background {
+    background: black;
+    width: 100%;
+    border-bottom: 1.1px solid white;
+}
+
+i {
+    color: white;
+    font-size: 30px;
+}
+
+.nav-link{
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    transition: color 0.1s, opacity 0.1s;
+    color:rgb(214, 214, 214);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 5px;
+    transition: all cubic-bezier(.17,.67,.83,.67) .2s;
+}
+
+.nav-link:hover {
+color: white;
+border-bottom: 2px solid white;
+}
+
+.video-home {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+

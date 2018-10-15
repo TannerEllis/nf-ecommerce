@@ -1,0 +1,84 @@
+.music-container {
+    background: rgb(22, 22, 22);
+    
+}
+
+.music-border {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1.1px solid white;
+    padding-bottom: 10px;
+    padding-top: 16px;
+    margin-left: 65px;
+    margin-right: 65px;
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    color: white;
+}
+
+.music-logo {
+    height: 70px;
+    padding-top: 12px;
+    padding-bottom: 7px;
+}
+
+.music-letters {
+    position: relative;
+    margin-left: 20px;
+    top: 9px;
+    color: white;
+}
+
+
+.album-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    clear: both;
+    
+}
+
+.album-size {
+    width: 22%;
+    height: 22%;
+    margin: 30px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    box-shadow: 2px 2px 2px 2px black;
+    transition: transform .5s;
+    clear: both;
+}
+
+.album-size:hover {
+    transform: scale(1.33);
+    cursor: pointer;
+}
+
+.spotifyMansion-iframe-container {
+    display: none;
+    margin-top: 35px;
+    width: 28%;
+    margin-left: 127px;
+    margin-bottom: 50px;
+}
+
+.spotifyTherapy-iframe-container {
+    display: none;
+    margin-top: 35px;
+    width: 28%;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+.spotifyPerception-iframe-container {
+    display: none;
+    margin-top: 35px;
+    width: 28%;
+    margin-left: 60px;
+    margin-bottom: 50px;
+}
+
