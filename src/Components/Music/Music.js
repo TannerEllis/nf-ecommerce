@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Music.css';
+import Logo from '../logo.png';
 import nfMansion from '../Music/nf-mansion.jpg'
 import nfTherapySession from '../Music/nf-therapysession.jpg'
 import nfPerception from '../Music/nf-perception.jpg'
@@ -29,7 +30,7 @@ class Music extends Component {
         return (
             <div className='music-container'>
                 <div className='music-border'>
-                    <Link to="/home"><img className="music-logo"  alt="music-logo" /></Link>
+                    <Link to="/home"><img className="music-logo" src={Logo} alt="music-logo" /></Link>
                     <div className="music-letters"><h2> Music</h2></div>
                 </div>
                 <div className="album-container">

@@ -17,7 +17,7 @@ class Home extends Component {
                         <a href="/#/home" className="navbar-brand"><img className='home-logo' src={Logo} alt="" /></a>
                         <ul className="navbar-nav">
                             <li className="nav-item"><Link to="/music" className="nav-link">Music</Link></li>
-                            <li className="nav-item"><Link to="/products" className="nav-link">Merch</Link></li>
+                            <li className="nav-item"><Link to="/merch" className="nav-link">Merch</Link></li>
                             <li className="nav-item"><Link to="/tourdates" className="nav-link">Tour Dates</Link></li>
                             <li className="nav-item"><Link to="/gallery" className="nav-link">Gallery</Link></li>
                             <li className="nav-item"><Link to="/shoppingcart" className="nav-link"><i className="fa fa-1x fa-shopping-cart" ></i></Link></li>

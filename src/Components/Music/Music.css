@@ -1,6 +1,8 @@
-.music-container {
+body {
     background: rgb(22, 22, 22);
-    
+}
+.music-container {
+    background: rgb(22, 22, 22);   
 }
 
 .music-border {
@@ -48,13 +50,13 @@
     margin: 30px;
     margin-top: 100px;
     margin-bottom: 60px;
-    box-shadow: 2px 2px 2px 2px black;
+    box-shadow: 1px 1px 1px 1px black;
     transition: transform .5s;
     clear: both;
 }
 
 .album-size:hover {
-    transform: scale(1.33);
+    transform: scale(1.25);
     cursor: pointer;
 }
 

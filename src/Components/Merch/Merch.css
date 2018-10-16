@@ -1,0 +1,93 @@
+.merch {
+    background: rgb(22, 22, 22);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.merch-logo {
+    height: 70px;
+    padding-top: 12px;
+    padding-bottom: 7px;
+    }
+
+.merch-container .container {
+    clear: both;
+}
+
+.merch-body {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+
+.merch-border {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1.1px solid white;
+    padding-bottom: 10px;
+    padding-top: 16px;
+    margin-left: 75px;
+    margin-right: 75px;
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    color: white;
+}
+
+.merch-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    width: 250px;
+    background: linear-gradient(128deg, rgba(64, 61, 57, 0.1), rgba(255, 255, 255, 0.2));
+    box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25), 0 10px 10px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 8px;
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    color: white;
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-left: 40px;
+    text-align: center;
+    }
+
+.card-image {
+    height: 80%;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.card-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    width: 100%;
+    height: 20%;
+    border-top: 1px solid black;
+}
+
+.merch-card:hover {
+    box-shadow: 3px 3px 3px 0 rgba(201, 201, 201, 0.25);
+    cursor: pointer;
+}
+
+.merch-letters {
+        position: relative;
+        margin-left: 20px;
+        top: 9px;
+        color: white;
+    }
+
+
