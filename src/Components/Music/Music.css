@@ -39,19 +39,91 @@ body {
 .album-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    clear: both;
+    justify-content: space-around;
+    align-items: center;
+    height: 600px;
+    width: 100%;
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.mansion {
+    width: 425px;
+    -webkit-transition: 0.9s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transition: 0.9s;
+	-moz-transform-style: preserve-3d; 
+  -o-transition: 0.9s;
+	-o-transform-style: preserve-3d;
+	transition: 0.9s;
+	transform-style: preserve-3d;
+    position: relative;
     
 }
 
-.album-size {
+.therapy {
+    width: 425px;
+}
+
+.perception {
+    width: 425px;
+}
+
+.album-mansion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:500px;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    border: 1px solid black;
+}
+
+.album-therapy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:500px;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    border: 1px solid black;
+}
+
+.album-perception {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height:500px;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -o-perspective: 1000;
+    perspective: 1000;
+    border: 1px solid black;
+}
+
+.mansion:hover {
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);  
+}
+
+
+.album {
     width: 22%;
     height: 22%;
     margin: 30px;
     margin-top: 100px;
     margin-bottom: 60px;
     box-shadow: 1px 1px 1px 1px black;
-    transition: transform .5s;
+    transition: transform .6s;
     clear: both;
 }
 

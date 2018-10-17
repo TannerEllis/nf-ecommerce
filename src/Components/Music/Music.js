@@ -16,10 +16,10 @@ class Music extends Component {
         }
 
         this.showSpotifyIframe = this.showSpotifyIframe.bind(this)
-        
+
     }
 
-    showSpotifyIframe(event){
+    showSpotifyIframe(event) {
         const { iframeRef } = event.target.dataset
         console.log(iframeRef)
         console.log(document.getElementById(iframeRef))
@@ -34,19 +34,25 @@ class Music extends Component {
                     <div className="music-letters"><h2> Music</h2></div>
                 </div>
                 <div className="album-container">
-                    <img className="album-size" src={nfMansion} alt="img" data-iframe-ref="spotifyMansion" onClick={this.showSpotifyIframe}/>
-                    <img className="album-size" src={nfTherapySession} alt="img" data-iframe-ref="spotifyTherapySession" onClick={this.showSpotifyIframe} />
-                    <img className="album-size" src={nfPerception} alt="img" data-iframe-ref="spotifyPerception" onClick={this.showSpotifyIframe} />
+                    <div className='album-mansion'><img className='mansion' src={nfMansion} alt="img" data-iframe-ref="spotifyMansion" onClick={this.showSpotifyIframe} />
+                        <button>Add To Cart</button>
+                    </div>
+                    <div className='album-therapy'><img className='therapy' src={nfTherapySession} alt="img" data-iframe-ref="spotifyTherapySession" onClick={this.showSpotifyIframe} />
+                        <button>Add To Cart</button>
+                    </div>
+                    <div className='album-perception'><img className='perception' src={nfPerception} alt="img" data-iframe-ref="spotifyPerception" onClick={this.showSpotifyIframe} />
+                        <button>Add To Cart</button>
+                    </div>
                 </div>
-            
-                 <div id="spotifyMansion" className="spotifyMansion-iframe-container">
-                 <iframe src="https://open.spotify.com/embed/album/3Qq4kVfHPrs8xPKIYKmctl" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+                <div id="spotifyMansion" className="spotifyMansion-iframe-container">
+                    <iframe src="https://open.spotify.com/embed/album/3Qq4kVfHPrs8xPKIYKmctl" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
 
                 <div id="spotifyTherapySession" className="spotifyTherapy-iframe-container">
                     <iframe src="https://open.spotify.com/embed/album/75fT8UQEDnekHNhRnbdpNI" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
-             
+
                 <div id="spotifyPerception" className="spotifyPerception-iframe-container">
                     <iframe src="https://open.spotify.com/embed/album/1KOmHyNLuOe5YrPhD3Juuf" width="300" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>
