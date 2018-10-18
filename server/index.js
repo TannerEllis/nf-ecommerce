@@ -73,4 +73,6 @@ app.use(session({
     res.redirect('http://localhost:3000/#/home');
 })
 
+app.get('/api/display/merch', controller.displayMerch)
+
 app.listen(SERVER_PORT, () => console.log(` Server running on port ${SERVER_PORT}`))

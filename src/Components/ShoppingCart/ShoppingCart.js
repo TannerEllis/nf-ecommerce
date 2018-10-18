@@ -7,7 +7,7 @@ class ShoppingCart extends Component {
     constructor(){
         super()
         this.state = {
-            product: []
+            cart: []
         }
     }
     render() {

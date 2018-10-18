@@ -80,7 +80,6 @@ body {
     -moz-perspective: 1000;
     -o-perspective: 1000;
     perspective: 1000;
-    border: 1px solid black;
 }
 
 .album-therapy {
@@ -92,7 +91,6 @@ body {
     -moz-perspective: 1000;
     -o-perspective: 1000;
     perspective: 1000;
-    border: 1px solid black;
 }
 
 .album-perception {
@@ -104,7 +102,6 @@ body {
     -moz-perspective: 1000;
     -o-perspective: 1000;
     perspective: 1000;
-    border: 1px solid black;
 }
 
 .mansion:hover {

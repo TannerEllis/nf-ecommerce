@@ -6,82 +6,43 @@ auth_id text
 )
 
 create table nf_cart (
-    users_id int,
-    product_id serial primary key, 
+    users_id int, 
+    product_id int references nf_merch,
     product_quantity int
 )
 
 create table nf_merch (
-    product_id int references nf_cart,
+    product_id serial primary key,
     product_type varchar(25),
     product_image text,
-    product_size varchar(10),
-    product_price int,
-    product_quantity int
+    product_price int
+)
+
+create table nf_inventory (
+    product_id int references nf_merch,
+    size_code varchar(4),
+    quantity int 
 )
 
 -- insert into nf_merch (product_type, product_image, product_size, product_price, product_quantity)
 -- values 
--- ('Beanie', 'https://s3.amazonaws.com/nfmerch/beanie.jpeg', 'N/A', 25, 50),
--- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat1.jpg', 'snapback', 30, 50),
--- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat2.jpg', 'snapback', 30, 50),
--- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat3.jpg', 'snapback', 30, 50),
--- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat4.jpg', 'snapback', 30, 50),
--- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat5.jpg', 'snapback', 30, 50),
--- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat6.jpg', 'snapback', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie1.jpg', 'S', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie1.jpg', 'M', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie1.jpg', 'L', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie1.jpg', 'XL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie1.jpg', 'XXL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie2.jpg', 'S', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie2.jpg', 'M', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie2.jpg', 'L', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie2.jpg', 'XL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie2.jpg', 'XXL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie3.jpeg', 'S', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie3.jpeg', 'M', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie3.jpeg', 'L', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie3.jpeg', 'XL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie3.jpeg', 'XXL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie4.jpg', 'S', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie4.jpg', 'M', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie4.jpg', 'L', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie4.jpg', 'XL', 30, 50),
--- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie4.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt1.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt1.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt1.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt1.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt1.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt2.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt2.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt2.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt2.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt2.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt3.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt3.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt3.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt3.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt3.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt4.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt4.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt4.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt4.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt4.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt5.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt5.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt5.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt5.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt5.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt6.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt6.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt6.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt6.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt6.jpg', 'XXL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt7.jpg', 'S', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt7.jpg', 'M', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt7.jpg', 'L', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt7.jpg', 'XL', 30, 50),
--- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt7.jpg', 'XXL', 30, 50)
+-- ('Beanie', 'https://s3.amazonaws.com/nfmerch/beanie.jpeg', 25),
+-- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat1.jpg', 30),
+-- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat2.jpg', 30),
+-- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat3.jpg', 30),
+-- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat4.jpg', 30),
+-- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat5.jpg', 30),
+-- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat6.jpg', 30),
+-- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie1.jpg', 30),
+-- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie2.jpg', 30),
+-- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie3.jpeg', 30),
+-- ('Hoodie', 'https://s3.amazonaws.com/nfmerch/hoodie4.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt1.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt2.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt3.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt4.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt5.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt6.jpg', 30),
+-- ('Shirt', 'https://s3.amazonaws.com/nfmerch/shirt7.jpg', 30)
+
 
