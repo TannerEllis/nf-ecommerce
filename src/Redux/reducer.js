@@ -1,7 +1,7 @@
 const initialState = {
     product: [],
     quantity: 0,
-    productId
+    productId: 0
 }
 
 const PRODUCT = 'PRODUCT'
