@@ -65,10 +65,28 @@ body {
 
 .therapy {
     width: 425px;
+    -webkit-transition: 0.9s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transition: 0.9s;
+	-moz-transform-style: preserve-3d; 
+  -o-transition: 0.9s;
+	-o-transform-style: preserve-3d;
+	transition: 0.9s;
+	transform-style: preserve-3d;
+    position: relative;
 }
 
 .perception {
     width: 425px;
+    -webkit-transition: 0.9s;
+	-webkit-transform-style: preserve-3d;
+	-moz-transition: 0.9s;
+	-moz-transform-style: preserve-3d; 
+  -o-transition: 0.9s;
+	-o-transform-style: preserve-3d;
+	transition: 0.9s;
+	transform-style: preserve-3d;
+    position: relative;
 }
 
 .album-mansion {
@@ -112,22 +130,38 @@ body {
     transform: rotateY(180deg);  
 }
 
+.therapy:hover {
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);  
+}
+
+.perception:hover {
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);  
+}
+
 
 .spotifyMansion-iframe-container {
     position: absolute;
     display: none;
-    width: 28%;
+    top: 25px;
 }
 
 .spotifyTherapy-iframe-container {
     position: absolute;
     display: none;
-    width: 28%;
+    top: 25px;
 }
 
 .spotifyPerception-iframe-container {
     position: absolute;
     display: none;
-    width: 28%;
+    top: 25px;
 }
 
