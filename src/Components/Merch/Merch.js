@@ -30,6 +30,17 @@ class Merch extends Component {
             .catch((err) => { console.log(err) })
     }
 
+    displayProduct() {
+        axios.get('/api/display/merch')
+            .then((merch) => {
+                console.log(merch)
+                this.setState({
+                    merchList: merch.data[0]
+                })
+            })
+            .catch((err) => { console.log(err) })
+    }
+
 
     render() {
         const merch = this.state.merchList.map((product, i) => {
@@ -41,6 +52,8 @@ class Merch extends Component {
             )
         })
 
+        
+
         return (
             <div className='merch' >
                 <div className='merch-border'>
@@ -50,6 +63,8 @@ class Merch extends Component {
                 <div className="merch-body">
                     {merch}
                 </div>
+
+
             </div>
         )
     }

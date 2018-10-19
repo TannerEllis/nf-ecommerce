@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Drawer from '@material-ui/core/Drawer';
 import './Home.css';
 import Logo from '../logo.png';
 
 
 
 class Home extends Component {
-
+    constructor(){
+        super()
+        this.state = {
+            right: false
+        }
+    }
 
 
     render() {
@@ -20,7 +26,7 @@ class Home extends Component {
                             <li className="nav-item"><Link to="/merch" className="nav-link">Merch</Link></li>
                             <li className="nav-item"><Link to="/tourdates" className="nav-link">Tour Dates</Link></li>
                             <li className="nav-item"><Link to="/gallery" className="nav-link">Gallery</Link></li>
-                            <li className="nav-item"><Link to="/shoppingcart" className="nav-link"><i className="fa fa-1x fa-shopping-cart" ></i></Link></li>
+                            <li className="nav-item"><Link to="/shoppingcart" className="nav-link"><i className="fa fa-1x fa-shopping-cart" ></i></Link></li>                       
                         </ul>
                     </div>
                 </nav>
