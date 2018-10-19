@@ -113,43 +113,21 @@ body {
 }
 
 
-.album {
-    width: 22%;
-    height: 22%;
-    margin: 30px;
-    margin-top: 100px;
-    margin-bottom: 60px;
-    box-shadow: 1px 1px 1px 1px black;
-    transition: transform .6s;
-    clear: both;
-}
-
-.album-size:hover {
-    transform: scale(1.25);
-    cursor: pointer;
-}
-
 .spotifyMansion-iframe-container {
+    position: absolute;
     display: none;
-    margin-top: 35px;
     width: 28%;
-    margin-left: 127px;
-    margin-bottom: 50px;
 }
 
 .spotifyTherapy-iframe-container {
+    position: absolute;
     display: none;
-    margin-top: 35px;
     width: 28%;
-    margin-left: 50px;
-    margin-bottom: 50px;
 }
 
 .spotifyPerception-iframe-container {
+    position: absolute;
     display: none;
-    margin-top: 35px;
     width: 28%;
-    margin-left: 60px;
-    margin-bottom: 50px;
 }
 
