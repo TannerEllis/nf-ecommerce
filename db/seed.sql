@@ -24,7 +24,7 @@ create table nf_inventory (
     quantity int 
 )
 
--- insert into nf_merch (product_type, product_image, product_size, product_price, product_quantity)
+-- insert into nf_merch (product_type, product_image, product_price)
 -- values 
 -- ('Beanie', 'https://s3.amazonaws.com/nfmerch/beanie.jpeg', 25),
 -- ('Hat', 'https://s3.amazonaws.com/nfmerch/hat1.jpg', 30),

@@ -17,17 +17,44 @@ class Music extends Component {
             showPerception: true
         }
 
-        this.showSpotifyIframe = this.showSpotifyIframe.bind(this)
+        this.showSpotifyIframe = this.showSpotifyIframe.bind(this);
+        // this.albumAnimation = this.albumAnimation.bind(this);
+        this.buyMansion = this.buyMansion.bind(this);
+        this.buyTherapy = this.buyTherapy.bind(this);
+        this.buyPerception = this.buyPerception.bind(this);
 
     }
 
-
+    buyMansion(){
+        console.log('Mansion')
+        this.setState({
+            showMansion: true
+        })
+    }
+    buyTherapy(){
+        console.log('Therapy')
+        this.setState({
+            showTherapy: true
+        })
+    }
+    buyPerception(){
+        console.log('Perception')
+        this.setState({
+            showPerception: true
+        })
+    }
 
     showSpotifyIframe(event) {
+        this.setState({
+            showMansion: false,
+            showTherapy: false,
+            showPerception: false
+        })
         const { iframeRef } = event.target.dataset
         console.log(iframeRef)
         console.log(document.getElementById(iframeRef))
-        document.getElementById(iframeRef).style.display = 'flex'
+        document.getElementById(iframeRef).style.display = 'inline-block'
+
     }
 
     render() {
@@ -43,7 +70,7 @@ class Music extends Component {
                             <iframe src="https://open.spotify.com/embed/album/3Qq4kVfHPrs8xPKIYKmctl" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         </div>
                         <img className='mansion' src={nfMansion} alt="img" data-iframe-ref="spotifyMansion" onClick={this.showSpotifyIframe} />
-                        <button>Add To Cart</button>
+                        <button onClick={() => {this.buyMansion()}} >Add To Cart</button>
                     </div>
                     <div className='album-therapy'>
                         <div id="spotifyTherapySession" className="spotifyTherapy-iframe-container">

@@ -51,13 +51,13 @@ body {
 
 .mansion {
     width: 425px;
-    -webkit-transition: 0.9s;
+    -webkit-transition: 1.25s;
 	-webkit-transform-style: preserve-3d;
-	-moz-transition: 0.9s;
+	-moz-transition: 1.25s;
 	-moz-transform-style: preserve-3d; 
-  -o-transition: 0.9s;
+  -o-transition: 1.25s;
 	-o-transform-style: preserve-3d;
-	transition: 0.9s;
+	transition: 1.25s;
 	transform-style: preserve-3d;
     position: relative;
     
@@ -65,26 +65,26 @@ body {
 
 .therapy {
     width: 425px;
-    -webkit-transition: 0.9s;
+    -webkit-transition: 1.25s;
 	-webkit-transform-style: preserve-3d;
-	-moz-transition: 0.9s;
+	-moz-transition: 1.25s;
 	-moz-transform-style: preserve-3d; 
-  -o-transition: 0.9s;
+  -o-transition: 1.25s;
 	-o-transform-style: preserve-3d;
-	transition: 0.9s;
+	transition: 1.25s;
 	transform-style: preserve-3d;
     position: relative;
 }
 
 .perception {
     width: 425px;
-    -webkit-transition: 0.9s;
+    -webkit-transition: 1.5s;
 	-webkit-transform-style: preserve-3d;
-	-moz-transition: 0.9s;
+	-moz-transition: 1.25s;
 	-moz-transform-style: preserve-3d; 
-  -o-transition: 0.9s;
+  -o-transition: 1.25s;
 	-o-transform-style: preserve-3d;
-	transition: 0.9s;
+	transition: 1.25s;
 	transform-style: preserve-3d;
     position: relative;
 }
