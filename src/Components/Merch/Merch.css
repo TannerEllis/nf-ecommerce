@@ -95,10 +95,179 @@
 }
 
 .merch-letters {
-        position: relative;
-        margin-left: 20px;
-        top: 9px;
-        color: white;
-    }
+    position: relative;
+    margin-left: 20px;
+    top: 9px;
+    color: white;
+}
+
+    
+.product-view {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background: linear-gradient(128deg, rgba(64, 61, 57, 0.1), rgba(255, 255, 255, 0.2));
+    box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25), 0 10px 10px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 110px;
+    width: 55%;
+    height: 550px;
+    
+}
+    
+.product-image-container {
+    display: flex;
+    margin-left: 10px;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 96%;
+    width: 400px;
+    border-radius: 8px;
+    border: 2px 
+ }
+
+ .product-card-image {
+     width: 350px;
+     border-radius: 8px;
+ }
+
+ .text-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+     width: 450px;
+     border: 1px solid red;
+     margin-left: 15px;
+ }
+
+ .exit {
+     display: flex;
+     justify-content: center;
+     margin-top: 15px;
+     margin-left: 20px;
+     width: 30px;
+     height: 30px;
+     color: white;
+ }
+    
+.hide-product {
+    display: none;
+}
+
+.product-desc-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid blue;
+    height: 35px;
+}
+
+.product-details-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border: 1px solid blue;
+    width: 90%;
+    height: 55px;
+}
+
+.product-price-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid blue;
+    height: 35px;
+}
+
+.product-desc {
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    color: white;
+}
+
+.product-details {
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: white;
+}
+
+.product-price {
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: white;
+}
+
+.size-container {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.size-button {
+    background: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 45px;
+    width: 45px;
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    transition: color 0.1s, opacity 0.1s;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.size-button:hover {
+    border: 2px solid white;
+}
+
+.size-button:active {
+    border: 2px solid white;
+}
+
+.add-to-cart {
+    background: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: 45px;
+    width: 150px;
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.875em;
+    transition: color 0.1s, opacity 0.1s;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.disclaimer {
+    color: white;
+    font-style: italic;
+}
 
 

@@ -14,7 +14,7 @@ export default function Login() {
     return (
         <div className="login-container"> 
          <div className='title'> <h1>NFREALMUSIC</h1></div>
-        <button onClick={ Login }> Enter <img className='buttonLogo' src={keyLogo} alt=""/></button>
+        <button className='login' onClick={ Login }> Enter <img className='buttonLogo' src={keyLogo} alt=""/></button>
         </div>        
     );
 }

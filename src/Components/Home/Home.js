@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Drawer from '@material-ui/core/Drawer';
 import './Home.css';
 import Logo from '../logo.png';
 
