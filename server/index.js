@@ -23,8 +23,7 @@ const {
   SESSION_SECRET,
   REACT_APP_DOMAIN,
   REACT_APP_CLIENT_ID,
-  CLIENT_SECRET,
-  ENVIRONMENT
+  CLIENT_SECRET
 } = process.env
 
 app.use(session({

@@ -34,6 +34,10 @@ class Merch extends Component {
             .catch((err) => { console.log(err) })
     }
 
+    displayMerchSize(){
+        axios.get('/api/display/sizes')
+    }
+
     displayProduct(i = 0) {
         console.log(i)
         this.setState({
@@ -68,14 +72,10 @@ class Merch extends Component {
                         <img className='product-card-image' src={this.state.selectedItem.product_image} alt="" />
                     </div>
                     <div className='text-container'>
-                        <div className='product-desc-container'><div className='product-desc'>{this.state.selectedItem.product_desc}</div></div>
-                        <div className='product-details-container'><div className='product-details'>{this.state.selectedItem.product_details}</div></div>
-                        <div className='disclaimer'>
-                             <p>ALL SALES ARE FINAL.</p>
-                             <br/>
-                             <p>NO EXCHANGES OF SIZES. ORDERS OUTSIDE OF THE USA ARE SUBJECT TO IMPORT TAXES AND FEES - THIS IS THE RESPONSIBILITY OF THE CUSTOMER.
-</p>
+                        <div className='product-desc-container'><div className='product-desc'>
+                            <h2>{this.state.selectedItem.product_desc}</h2></div>
                         </div>
+                        <div className='product-details-container'><div className='product-details'>{this.state.selectedItem.product_details}</div></div>
                         <div className='size-container'>
                             <div><button className='size-button'>S</button></div>
                             <div><button className='size-button'>M</button></div>
