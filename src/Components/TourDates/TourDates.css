@@ -28,7 +28,11 @@
 
 .tourdates-letters {
         position: relative;
-        margin-left: 20px;
+        margin-left: 25px;
         top: 9px;
         color: white;
+    }
+
+    .cart-container-tour {
+        margin-left: 1130px;
     }

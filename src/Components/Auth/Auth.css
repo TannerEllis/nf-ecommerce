@@ -43,6 +43,7 @@ button {
 
 button:hover {
     border: 1.5px solid white;
+    cursor: pointer;
 }
 
 .login:hover {

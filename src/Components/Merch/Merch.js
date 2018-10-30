@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 import axios from 'axios';
 import './Merch.css'
 import Logo from '../logo.png';
@@ -10,13 +11,16 @@ class Merch extends Component {
         this.state = {
             merchList: [],
             showProduct: false,
-            selectedItem: {}
-
+            selectedItem: {},
+            select: 1
         }
 
         this.displayMerch = this.displayMerch.bind(this);
         this.displayProduct = this.displayProduct.bind(this);
-
+        this.handleAddToCart = this.handleAddToCart.bind(this);
+        this.handleCloseProduct = this.handleCloseProduct.bind(this);
+        this.handleUpdateSize = this.handleUpdateSize.bind(this);
+        this.handleUpdateQuantity = this.handleUpdateQuantity.bind(this);
     }
 
     componentDidMount() {
@@ -34,11 +38,7 @@ class Merch extends Component {
             .catch((err) => { console.log(err) })
     }
 
-    displayMerchSize(){
-        axios.get('/api/display/sizes')
-    }
-
-    displayProduct(i = 0) {
+    displayProduct(i) {
         console.log(i)
         this.setState({
             showProduct: !this.state.showProduct,
@@ -46,7 +46,50 @@ class Merch extends Component {
         })
     }
 
+    handleCloseProduct() {
+        this.setState({
+            showProduct: false,
+            selectedItem: {}
+        })
+    }
+
+    handleAddToCart() {
+        let { selectedItem } = this.state
+        axios.post('/api/addtocart', selectedItem)
+            .then((res) => {
+                swal({
+                    title: 'Added To Cart',
+                    icon: "success",
+                    timer: 3000
+                })
+                this.setState({
+                    select: ''
+                })
+                this.handleCloseProduct()
+            })
+    }
+
+    handleUpdateSize(e) {
+        this.setState({
+            selectedItem: {
+                ...this.state.selectedItem,
+                selectSize: e.target.value
+            }
+        })
+    }
+
+    handleUpdateQuantity(e) {
+        this.setState({
+            select: e.target.value,
+            selectedItem: {
+                ...this.state.selectedItem,
+                selectQuantity: e.target.value,
+            }
+        })
+    }
+
     render() {
+        const { selectSize } = this.state.selectedItem
         const merch = this.state.merchList.map((product, i) => {
             if (!this.state.showProduct) {
                 return (
@@ -63,6 +106,7 @@ class Merch extends Component {
                 <div className='merch-border'>
                     <Link to="/home"><img className="merch-logo" src={Logo} alt="merch-logo" /></Link>
                     <div className="merch-letters"><h2> Merch</h2></div>
+                    <div className='cart-logo-container'><Link to="/shoppingcart" className="nav-link"><i className="fa fa-1x fa-shopping-cart" ></i></Link></div>
                 </div>
                 <div className="merch-body">
                     {merch}
@@ -77,20 +121,32 @@ class Merch extends Component {
                         </div>
                         <div className='product-details-container'><div className='product-details'>{this.state.selectedItem.product_details}</div></div>
                         <div className='size-container'>
-                            <div><button className='size-button'>S</button></div>
-                            <div><button className='size-button'>M</button></div>
-                            <div><button className='size-button'>L</button></div>
-                            <div><button className='size-button'>XL</button></div>
-                            <div><button className='size-button'>XXL</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='S' className={selectSize === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='M' className={selectSize === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='L' className={selectSize === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='XL' className={selectSize === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='XXL' className={selectSize === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
+                        </div>
+                        <div className='quantity-select'>
+                            <select onChange={this.handleUpdateQuantity} value={this.state.select}>
+                                <option value=''>Quantity</option>
+                                <option value={1}>1</option>
+                                <option value={2}>2</option>
+                                <option value={3}>3</option>
+                                <option value={4}>4</option>
+                                <option value={5}>5</option>
+                            </select>
                         </div>
                         <div className='product-price-container'><div className='product-price'>${this.state.selectedItem.product_price}</div></div>
-                        <div className='product-button-container'><button className='add-to-cart'>ADD TO CART</button></div>
+                        <div className='product-button-container'><button disabled={this.state.selectedItem.selectSize === undefined} onClick={() => { this.handleAddToCart() }} className='add-to-cart'>ADD TO CART</button></div>
                     </div>
-                    <div onClick={() => { this.displayProduct() }} className='exit'><i className="fas fa-times"></i></div>
+                    <div onClick={() => { this.handleCloseProduct() }} className='exit'><i className="fas fa-times"></i></div>
                 </div>
             </div>
         )
     }
 }
+
+
 
 export default Merch;

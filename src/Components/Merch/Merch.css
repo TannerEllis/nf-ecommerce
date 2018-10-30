@@ -38,6 +38,15 @@
     color: white;
 }
 
+.cart-logo-container {
+    margin-left: 1230px;
+}
+
+.cart-logo-container>a:hover {
+    transform: scale(2);
+    border-bottom: none;
+}
+
 .merch-card {
     display: flex;
     flex-direction: column;
@@ -96,7 +105,7 @@
 
 .merch-letters {
     position: relative;
-    margin-left: 20px;
+    margin-left: 25px;
     top: 9px;
     color: white;
 }
@@ -247,6 +256,36 @@
     cursor: pointer;
 }
 
+.selected-size {
+    border: 3px solid white;
+}
+
+.quantity-select {
+    display: flex;
+    background: none; 
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+}
+
+select {
+    color: white;
+    font-size: 20px;
+    border-radius: 8px;
+    background: none;
+    border: 1px solid white;
+}
+
+select:focus {
+    color: black;
+}
+
+
+option {
+    color: black;
+}
+
+option:focus {
+    color: white;
+}
 
 .add-to-cart {
     background: none;

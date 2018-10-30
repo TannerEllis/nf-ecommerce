@@ -23,7 +23,8 @@ const {
   SESSION_SECRET,
   REACT_APP_DOMAIN,
   REACT_APP_CLIENT_ID,
-  CLIENT_SECRET
+  CLIENT_SECRET,
+  NODE_ENV
 } = process.env
 
 app.use(session({
@@ -34,6 +35,18 @@ app.use(session({
       maxAge: 60000000
     }
   }));
+
+  app.use((req, res, next) => {
+    if(NODE_ENV === 'development') {
+        req.session.user = {
+            users_id: 1,
+            first_name: 'Tanner',
+            last_name: 'Ellis',
+            auth_id: 'google-oauth2|114478872167194293967'
+        }
+    }
+    next()
+  })
 
 
   app.get('/auth/callback', async (req, res) => {
@@ -59,19 +72,21 @@ app.use(session({
     firstName = username[0] 
     lastName = username[1]
 
-
     let existingUser = await db.check_user([sub])
 
     if (existingUser[0]) {
         req.session.user = existingUser[0]
     } else {
         let createdUser = await db.create_user([firstName, lastName, sub])
-        
         req.session.user = createdUser[0]
     }
     res.redirect('http://localhost:3000/#/home');
 })
 
 app.get('/api/display/merch', controller.displayMerch)
+app.get('/api/shoppingcart', controller.getCart)
+
+app.post('/api/addtocart', controller.addToCart)
+app.post('/api/buy/album', controller.purchaseAlbum)
 
 app.listen(SERVER_PORT, () => console.log(` Server running on port ${SERVER_PORT}`))
