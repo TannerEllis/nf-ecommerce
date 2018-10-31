@@ -12,7 +12,7 @@ class Merch extends Component {
             merchList: [],
             showProduct: false,
             selectedItem: {},
-            select: 1
+            select: 'Quantity'
         }
 
         this.displayMerch = this.displayMerch.bind(this);

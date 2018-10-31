@@ -89,4 +89,9 @@ app.get('/api/shoppingcart', controller.getCart)
 app.post('/api/addtocart', controller.addToCart)
 app.post('/api/buy/album', controller.purchaseAlbum)
 
+app.put('/api/editquantity', controller.editQuantity)
+app.put('/api/editsize', controller.editSize)
+
+app.delete('/api/removeitem/:id', controller.removeItem)
+
 app.listen(SERVER_PORT, () => console.log(` Server running on port ${SERVER_PORT}`))

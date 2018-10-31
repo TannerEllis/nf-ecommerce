@@ -5,7 +5,8 @@ module.exports = {
     },
 
     getCart: (req, res) => {
-        let currentUser = req.session.user.id
+        let currentUser = req.session.user.users_id
+        console.log(currentUser)
         req.app.get('db').get_cart([currentUser])
         .then((addedItems) => {
             res.status(200).send(addedItems)
@@ -33,6 +34,28 @@ module.exports = {
         req.app.get('db').purchase_album([currentUser, productId])
         .then((album) => {
             res.status(200).send(album)
+        })
+    },
+
+    removeItem: (req, res) => {
+        let currentUser = req.session.user.users_id
+        let productId = req.params.id
+        req.app.get('db').remove_from_cart([currentUser, productId])
+        .then(items => {
+            res.status(200).send(items)
+          })
+          .catch(err => {
+            console.log(err)
+            res.status(500).send(err)
+          })
+    }, 
+
+    editQuantity: (req, res) => {
+        let currentUser = req.session.user.users_id
+        let {quantity, product_id} = req.body
+        req.app.get('db').edit_quantity([currentUser, quantity, product_id])
+        .then((newQuantity) => {
+            res.send(newQuantity[0])
         })
     }
 

@@ -6,6 +6,7 @@ auth_id text
 )
 
 create table nf_cart (
+    cart_id serial primary key,
     users_id int, 
     product_id int references nf_merch,
     product_quantity int,
@@ -21,7 +22,7 @@ create table nf_merch (
     product_details text
 )
 
-\
+
 
 -- insert into nf_merch (product_type, product_image, product_price, product_desc, product_details)
 -- values 

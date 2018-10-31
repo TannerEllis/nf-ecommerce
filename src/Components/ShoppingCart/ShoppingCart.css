@@ -19,3 +19,127 @@
     font-size: 0.875em;
     color: white;
 }
+
+.shopping-cart-body {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.cart-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background: linear-gradient(128deg, rgba(64, 61, 57, 0.1), rgba(255, 255, 255, 0.2));
+    box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25), 0 10px 10px 0 rgba(0, 0, 0, 0.26);
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 110px;
+    width: 61%;
+    height: 550px;
+}
+
+.cart-image-container {
+    display: flex;
+    margin-left: 10px;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 96%;
+    width: 400px;
+    border-radius: 8px;
+    border: 2px 
+}
+
+.cart-image {
+    width: 350px;
+    border-radius: 8px;
+}
+
+.cart-text-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+     text-align: center;
+     width: 550px;
+     margin-left: 15px;
+}
+
+.cart-desc-container {
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    border-bottom: 1px solid white;
+}
+
+.cart-desc {
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 1em;
+    color: white;
+}
+
+.cart-details-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 90%;
+    height: 70px;
+}
+
+.cart-details>h2 {
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: white;
+}
+
+.cart-size-container {
+    height: 70px;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+.cart-price {
+    font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    color: white;
+}
+
+.disclaimer {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid orangered;
+}
+
+.cart-exit {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.cart-exit:hover {
+    cursor: pointer;
+}
+
