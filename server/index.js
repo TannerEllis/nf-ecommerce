@@ -80,7 +80,7 @@ app.use(session({
         let createdUser = await db.create_user([firstName, lastName, sub])
         req.session.user = createdUser[0]
     }
-    res.redirect('http://localhost:3000/#/home');
+    res.redirect('/#/home');
 })
 
 app.get('/api/display/merch', controller.displayMerch)
