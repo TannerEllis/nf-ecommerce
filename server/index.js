@@ -15,7 +15,7 @@ massive(process.env.CONNECTION_STRING)
 
 
 app.use(bodyParser.json());
-
+app.use( express.static( `${__dirname}/../build` ) );
 
 
 const {
@@ -24,7 +24,8 @@ const {
   REACT_APP_DOMAIN,
   REACT_APP_CLIENT_ID,
   CLIENT_SECRET,
-  NODE_ENV
+  NODE_ENV,
+  AUTH_PROTOCOL
 } = process.env
 
 app.use(session({
@@ -56,7 +57,7 @@ app.use(session({
         client_secret: CLIENT_SECRET,
         code: req.query.code,
         grant_type: 'authorization_code',
-        redirect_uri: `http://${req.headers.host}/auth/callback`
+        redirect_uri: `${AUTH_PROTOCOL}://${req.headers.host}/auth/callback`
     }
 
     //post request with code for token
@@ -90,7 +91,7 @@ app.post('/api/addtocart', controller.addToCart)
 app.post('/api/buy/album', controller.purchaseAlbum)
 
 app.put('/api/editquantity', controller.editQuantity)
-app.put('/api/editsize', controller.editSize)
+// app.put('/api/editsize', controller.editSize)
 
 app.delete('/api/removeitem/:id', controller.removeItem)
 
