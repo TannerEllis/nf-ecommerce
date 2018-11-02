@@ -10,18 +10,18 @@ class ShoppingCart extends Component {
         super()
         this.state = {
             cart: [],
+            selectedItem: {},
             selectedSize: '',
-            selectedQuantity: 1,
-            displaySize: '',
-            displayQuantity: 1,
+            selectedQuantity: 0,
             subTotal: 0,
             checkOutTotal: 0
         }
 
         this.handleShoppingCart = this.handleShoppingCart.bind(this);
         this.handleRemoveItem = this.handleRemoveItem.bind(this);
-        // this.handleUpdateSize = this.handleUpdateSize.bind(this);
-        // this.handleUpdateQuantity = this.handleUpdateQuantity.bind(this);
+        this.handleUpdateQuantity = this.handleUpdateQuantity.bind(this);
+        this.handleUpdateSize = this.handleUpdateSize.bind(this);
+
     }
 
     componentDidMount() {
@@ -43,43 +43,35 @@ class ShoppingCart extends Component {
                 this.setState({
                     cart: res.data
                 })
-                this.componentDidMount()
             })
     }
 
-    // handleUpdateQuantity(e) {
-    //     this.setState({
-    //         quantity: e.tartget.value
-    //     })
-    //     let { product_id, quantity } = this.state
-    //     axios.put('/api/editquantity', { quantity, product_id })
-    //         .then((res) => {
-    //             this.setState({
-    //                 displayQuantity: res.data.product_quantity
-    //             })
-    //         })
-    // }
+    handleUpdateQuantity(quantity, item) {
+        console.log(item)
+        let {product_id} = item
+        axios.put('/api/editquantity' , {quantity, product_id})
+        .then((res) => {
+            console.log(res.data)
+            this.setState({
+                cart: res.data
+            })
+        })
+    }
 
-    // handleSizeSelect(e) {
-    //     this.setState({
-    //         selectedSize: e.target.value
-    //     })
-    // }
-
-    // handleUpdateSize() {
-    //     let { selectedSize } = this.state
-    //     axios.put('/api/editsize', { selectedSize })
-    //         .then((res) => {
-    //             console.log(res.data)
-    //         })
-    // }
-
-
+    handleUpdateSize(size ,item){
+        let {product_id} = item
+        console.log(item)
+        axios.put('/api/editsize', {size, product_id})
+        .then((res) => {
+            this.setState({
+                cart: res.data
+            })
+        })
+    }
 
     render() {
-
         const cartItem = this.state.cart.map((item, i) => {
-            console.log(item)
+            // console.log(item)
             return (
                 <div className='cart-item' key={i}>
                     <div className='cart-image-container'>
@@ -97,21 +89,14 @@ class ShoppingCart extends Component {
                             </div>
                         </div>
                         <div className='cart-size-container'>
-                            <div><button onClick={(e) => this.handleSizeSelect(e)} value='S' className={this.state.selectedSize === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
-                            <div><button onClick={(e) => this.handleSizeSelect(e)} value='M' className={this.state.selectedSize === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
-                            <div><button onClick={(e) => this.handleSizeSelect(e)} value='L' className={this.state.selectedSize === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
-                            <div><button onClick={(e) => this.handleSizeSelect(e)} value='XL' className={this.state.selectedSize === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
-                            <div><button onClick={(e) => this.handleSizeSelect(e)} value='XXL' className={this.state.selectedSize === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
+                            <div><button onClick={() => this.handleUpdateSize('S', item)} value={item.size_code} className={item.size_code === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
+                            <div><button onClick={() => this.handleUpdateSize('M', item)} value={item.size_code} className={item.size_code === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
+                            <div><button onClick={() => this.handleUpdateSize('L', item)} value={item.size_code} className={item.size_code === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
+                            <div><button onClick={() => this.handleUpdateSize('XL', item)} value={item.size_code} className={item.size_code === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
+                            <div><button onClick={() => this.handleUpdateSize('XXL', item)} value={item.size_code} className={item.size_code === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
                         </div>
                         <div className='quantity-select'>
-                            <select >
-                                <option value=''>Quantity</option>
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
-                                <option value={4}>4</option>
-                                <option value={5}>5</option>
-                            </select>
+                            Quantity <input type="number"  onChange={(e) => this.handleUpdateQuantity(e.target.value, item)} value={item.product_quantity} />
                         </div>
                         <div className='cart-price'>
                             ${item.product_price}

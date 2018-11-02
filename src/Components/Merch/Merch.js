@@ -12,7 +12,7 @@ class Merch extends Component {
             merchList: [],
             showProduct: false,
             selectedItem: {},
-            select: 'Quantity'
+            select: 1
         }
 
         this.displayMerch = this.displayMerch.bind(this);
@@ -55,6 +55,7 @@ class Merch extends Component {
 
     handleAddToCart() {
         let { selectedItem } = this.state
+        console.log()
         axios.post('/api/addtocart', selectedItem)
             .then((res) => {
                 swal({
@@ -73,7 +74,7 @@ class Merch extends Component {
         this.setState({
             selectedItem: {
                 ...this.state.selectedItem,
-                selectSize: e.target.value
+                selectSize: e.target.name
             }
         })
     }
@@ -121,21 +122,14 @@ class Merch extends Component {
                         </div>
                         <div className='product-details-container'><div className='product-details'>{this.state.selectedItem.product_details}</div></div>
                         <div className='size-container'>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='S' className={selectSize === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='M' className={selectSize === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='L' className={selectSize === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='XL' className={selectSize === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} value='XXL' className={selectSize === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='S' className={selectSize === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='M' className={selectSize === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='L' className={selectSize === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='XL' className={selectSize === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
+                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='XXL' className={selectSize === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
                         </div>
                         <div className='quantity-select'>
-                            <select onChange={this.handleUpdateQuantity} value={this.state.select}>
-                                <option value=''>Quantity</option>
-                                <option value={1}>1</option>
-                                <option value={2}>2</option>
-                                <option value={3}>3</option>
-                                <option value={4}>4</option>
-                                <option value={5}>5</option>
-                            </select>
+                            Quantity <input type="number"  onChange={this.handleUpdateQuantity} value={this.state.select}/>
                         </div>
                         <div className='product-price-container'><div className='product-price'>${this.state.selectedItem.product_price}</div></div>
                         <div className='product-button-container'><button disabled={this.state.selectedItem.selectSize === undefined} onClick={() => { this.handleAddToCart() }} className='add-to-cart'>ADD TO CART</button></div>

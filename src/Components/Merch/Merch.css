@@ -263,29 +263,19 @@
 .quantity-select {
     display: flex;
     background: none; 
+    color: white;;
     font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
 }
 
-select {
-    color: white;
-    font-size: 20px;
-    border-radius: 8px;
-    background: none;
-    border: 1px solid white;
-}
-
-select:focus {
+input {
+    width: 40px;
+    border-radius: 4px;
+    margin-left: 10px;
+    padding-left: 10px;
+    border: none;
     color: black;
 }
 
-
-option {
-    color: black;
-}
-
-option:focus {
-    color: white;
-}
 
 .add-to-cart {
     background: none;

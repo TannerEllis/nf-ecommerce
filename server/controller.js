@@ -6,20 +6,16 @@ module.exports = {
 
     getCart: (req, res) => {
         let currentUser = req.session.user.users_id
-        console.log(currentUser)
         req.app.get('db').get_cart([currentUser])
         .then((addedItems) => {
             res.status(200).send(addedItems)
         })
         .catch((err) => {
-            console.log(err)
             res.status(500).send(err)
         })
     },
 
-    addToCart: (req, res) => {
-        console.log(req.body)
-        console.log(req.session.user, 'test')
+    addToCart: (req, res) => {  
         let currentUser = req.session.user.users_id
         let { product_id, selectSize, selectQuantity } = req.body
         req.app.get('db').add_to_cart([currentUser, product_id, selectQuantity, selectSize])
@@ -45,7 +41,6 @@ module.exports = {
             res.status(200).send(items)
           })
           .catch(err => {
-            console.log(err)
             res.status(500).send(err)
           })
     }, 
@@ -55,7 +50,16 @@ module.exports = {
         let {quantity, product_id} = req.body
         req.app.get('db').edit_quantity([currentUser, quantity, product_id])
         .then((newQuantity) => {
-            res.send(newQuantity[0])
+            res.send(newQuantity)
+        })
+    },
+
+    editSize: (req, res) => {
+        let currentUser = req.session.user.users_id
+        let {size, product_id} = req.body
+        req.app.get('db').edit_size([currentUser, size, product_id])
+        .then((newSize) => {
+            res.send(newSize)
         })
     }
 
