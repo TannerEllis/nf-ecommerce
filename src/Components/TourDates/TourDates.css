@@ -36,3 +36,29 @@
     .cart-container-tour {
         margin-left: 1130px;
     }
+
+    .show-list-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80vh;
+    }
+
+    .tour-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;  
+        height: 100px;
+        width: 90%;
+        margin: 0 auto;
+        font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+        color: white;
+        border: 1px solid white;
+        margin-top: 25px;
+    }
+
+    /* table {
+        display: flex;
+        font-family: "Montserrat","HelveticaNeue","Helvetica Neue",sans-serif;
+        color: white;
+    } */

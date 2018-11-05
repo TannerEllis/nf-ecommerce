@@ -21,30 +21,46 @@ class Music extends Component {
 
         this.displaySpotifyIframe = this.displaySpotifyIframe.bind(this);
         this.purchaseAlbum = this.purchaseAlbum.bind(this);
+        this.handleFlipMansion = this.handleFlipMansion.bind(this);
+        this.handleFlipTherapy = this.handleFlipTherapy.bind(this);
+        this.handleFlipPerception = this.handleFlipPerception.bind(this);
 
     }
 
-    purchaseAlbum(id){
-        axios.post('/api/buy/album', {id})
-        .then(
-            swal({
-                title: 'Added To Cart',
-                icon: "success",
-                timer: 3000
-            })
-        )
+    purchaseAlbum(id) {
+        axios.post('/api/buy/album', { id })
+            .then(
+                swal({
+                    title: 'Added To Cart',
+                    icon: "success",
+                    timer: 3000
+                })
+            )
     }
 
     displaySpotifyIframe(event) {
-        this.setState({
-            showMansion: false,
-            showTherapy: false,
-            showPerception: false
-        })
         const { iframeRef } = event.target.dataset
         console.log(iframeRef)
         console.log(document.getElementById(iframeRef))
         document.getElementById(iframeRef).style.display = 'inline-block'
+    }
+
+    handleFlipMansion(){
+        this.setState({
+            showMansion: false
+        })
+    }
+
+    handleFlipTherapy(){
+        this.setState({
+            showTherapy: false
+        })
+    }
+
+    handleFlipPerception(){
+        this.setState({
+            showPerception: false
+        })
     }
 
 
@@ -58,25 +74,37 @@ class Music extends Component {
                 </div>
                 <div className="album-container">
                     <div className='album-mansion'>
-                        <div id="spotifyMansion" className="spotifyMansion-iframe-container">
-                            <iframe src="https://open.spotify.com/embed/album/3Qq4kVfHPrs8xPKIYKmctl" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <div className='front-face'>
+                            <div id="spotifyMansion" className="spotifyMansion-iframe-container">
+                                <iframe src="https://open.spotify.com/embed/album/3Qq4kVfHPrs8xPKIYKmctl" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
                         </div>
-                        <img className='mansion' src={nfMansion} alt="img" data-iframe-ref="spotifyMansion" onClick={this.displaySpotifyIframe} />
-                        <button onClick={() => {this.purchaseAlbum(19)}} >Add To Cart</button>
+                        <div className='back-face' onClick={() => this.handleFlipMansion()}>
+                            <img className={this.state.showMansion ? 'mansion': 'mansion-flip'} src={nfMansion} alt="img" data-iframe-ref="spotifyMansion" onClick={this.displaySpotifyIframe} />
+                        </div>
+                        <button onClick={() => { this.purchaseAlbum(19) }} >Add To Cart</button>
                     </div>
                     <div className='album-therapy'>
-                        <div id="spotifyTherapySession" className="spotifyTherapy-iframe-container">
-                            <iframe src="https://open.spotify.com/embed/album/75fT8UQEDnekHNhRnbdpNI" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <div className='front-face'>
+                            <div id="spotifyTherapySession" className="spotifyTherapy-iframe-container">
+                                <iframe src="https://open.spotify.com/embed/album/75fT8UQEDnekHNhRnbdpNI" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
                         </div>
-                        <img className='therapy' src={nfTherapySession} alt="img" data-iframe-ref="spotifyTherapySession" onClick={this.displaySpotifyIframe} />
-                        <button onClick={() => {this.purchaseAlbum(20)}}>Add To Cart</button>
+                        <div className='back-face' onClick={() => this.handleFlipTherapy()}>
+                            <img className={this.state.showTherapy ? 'therapy': 'therapy-flip'} src={nfTherapySession} alt="img" data-iframe-ref="spotifyTherapySession" onClick={this.displaySpotifyIframe} />
+                        </div>
+                        <button onClick={() => { this.purchaseAlbum(20) }}>Add To Cart</button>
                     </div>
                     <div className='album-perception'>
-                        <div id="spotifyPerception" className="spotifyPerception-iframe-container">
-                            <iframe src="https://open.spotify.com/embed/album/1KOmHyNLuOe5YrPhD3Juuf" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <div className='front-face'>
+                            <div id="spotifyPerception" className="spotifyPerception-iframe-container">
+                                <iframe src="https://open.spotify.com/embed/album/1KOmHyNLuOe5YrPhD3Juuf" width="350" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            </div>
                         </div>
-                        <img className='perception' src={nfPerception} alt="img" data-iframe-ref="spotifyPerception" onClick={this.displaySpotifyIframe} />
-                        <button onClick={() => {this.purchaseAlbum(21)}}>Add To Cart</button>
+                        <div className='back-face' onClick={() => this.handleFlipPerception()}>
+                            <img className={this.state.showPerception ? 'perception': 'perception-flip'} src={nfPerception} alt="img" data-iframe-ref="spotifyPerception" onClick={this.displaySpotifyIframe} />
+                        </div>
+                        <button onClick={() => { this.purchaseAlbum(21) }}>Add To Cart</button>
                     </div>
                 </div>
 

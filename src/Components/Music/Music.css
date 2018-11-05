@@ -39,6 +39,7 @@ body {
 .album-container {
     display: flex;
     flex-wrap: wrap;
+    perspective: 1000px;
     justify-content: space-around;
     align-items: center;
     height: 600px;
@@ -46,122 +47,117 @@ body {
     display: flex;
     padding-left: 50px;
     padding-right: 50px;
-
 }
 
 .mansion {
     width: 425px;
-    -webkit-transition: 1.25s;
-	-webkit-transform-style: preserve-3d;
-	-moz-transition: 1.25s;
-	-moz-transform-style: preserve-3d; 
-  -o-transition: 1.25s;
-	-o-transform-style: preserve-3d;
-	transition: 1.25s;
-	transform-style: preserve-3d;
-    position: relative;
     
 }
 
 .therapy {
     width: 425px;
-    -webkit-transition: 1.25s;
-	-webkit-transform-style: preserve-3d;
-	-moz-transition: 1.25s;
-	-moz-transform-style: preserve-3d; 
-  -o-transition: 1.25s;
-	-o-transform-style: preserve-3d;
-	transition: 1.25s;
-	transform-style: preserve-3d;
-    position: relative;
 }
 
 .perception {
     width: 425px;
-    -webkit-transition: 1.5s;
-	-webkit-transform-style: preserve-3d;
-	-moz-transition: 1.25s;
-	-moz-transform-style: preserve-3d; 
-  -o-transition: 1.25s;
-	-o-transform-style: preserve-3d;
-	transition: 1.25s;
-	transform-style: preserve-3d;
-    position: relative;
+}
+
+
+
+.mansion-flip {
+    width: 425px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transition: 1.25s;
+}
+
+.therapy-flip {
+    width: 425px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    opacity: 2;
+    transition: 1.25s;
+}
+
+.perception-flip {
+    width: 425px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transition: 1.25s;
 }
 
 .album-mansion {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height:500px;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    perspective: 1000;
+    height: 500px;
 }
 
 .album-therapy {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height:500px;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    perspective: 1000;
+    height: 500px;
+  
 }
 
 .album-perception {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height:500px;
-    -webkit-perspective: 1000;
-    -moz-perspective: 1000;
-    -o-perspective: 1000;
-    perspective: 1000;
+    height: 500px;
+  
 }
 
 .mansion:hover {
     cursor: pointer;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);  
 }
 
 .therapy:hover {
     cursor: pointer;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);  
 }
 
 .perception:hover {
     cursor: pointer;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -o-transform: rotateY(180deg);
-    transform: rotateY(180deg);  
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 .spotifyMansion-iframe-container {
     position: absolute;
     display: none;
-    top: 25px;
+    top: 75px;
+    left: 140px;
+    z-index: 1;
+    animation: fadeIn 1.3s ease-in
 }
 
 .spotifyTherapy-iframe-container {
     position: absolute;
     display: none;
-    top: 25px;
+    top: 75px;
+    left: 680px;
+    z-index: 1;
+    animation: fadeIn 1.3s ease-in
 }
 
 .spotifyPerception-iframe-container {
     position: absolute;
     display: none;
-    top: 25px;
+    top: 75px;
+    right: 140px;
+    z-index: 1;
+    animation: fadeIn 1.3s ease-in
 }
+
+
+
+
 

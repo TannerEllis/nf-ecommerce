@@ -121,18 +121,26 @@ class Merch extends Component {
                             <h2>{this.state.selectedItem.product_desc}</h2></div>
                         </div>
                         <div className='product-details-container'><div className='product-details'>{this.state.selectedItem.product_details}</div></div>
-                        <div className='size-container'>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='S' className={selectSize === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='M' className={selectSize === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='L' className={selectSize === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='XL' className={selectSize === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
-                            <div><button onClick={(e) => this.handleUpdateSize(e)} name='XXL' className={selectSize === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
-                        </div>
+                        {
+                            this.state.selectedItem.product_type === 'Shirt' 
+                            || 
+                            this.state.selectedItem.product_type === 'Hoodie'
+                                ?
+                                <div className='size-container'>
+                                    <div><button onClick={(e) => this.handleUpdateSize(e)} name='S' className={selectSize === 'S' ? 'size-button selected-size' : 'size-button'}>S</button></div>
+                                    <div><button onClick={(e) => this.handleUpdateSize(e)} name='M' className={selectSize === 'M' ? 'size-button selected-size' : 'size-button'}>M</button></div>
+                                    <div><button onClick={(e) => this.handleUpdateSize(e)} name='L' className={selectSize === 'L' ? 'size-button selected-size' : 'size-button'}>L</button></div>
+                                    <div><button onClick={(e) => this.handleUpdateSize(e)} name='XL' className={selectSize === 'XL' ? 'size-button selected-size' : 'size-button'}>XL</button></div>
+                                    <div><button onClick={(e) => this.handleUpdateSize(e)} name='XXL' className={selectSize === 'XXL' ? 'size-button selected-size' : 'size-button'}>XXL</button></div>
+                                </div>
+                                :
+                                null
+                        }
                         <div className='quantity-select'>
-                            Quantity <input type="number"  onChange={this.handleUpdateQuantity} value={this.state.select}/>
+                            Quantity <input type="number" onChange={this.handleUpdateQuantity} value={this.state.select} />
                         </div>
                         <div className='product-price-container'><div className='product-price'>${this.state.selectedItem.product_price}</div></div>
-                        <div className='product-button-container'><button disabled={this.state.selectedItem.selectSize === undefined} onClick={() => { this.handleAddToCart() }} className='add-to-cart'>ADD TO CART</button></div>
+                        <div className='product-button-container'><button onClick={() => { this.handleAddToCart() }} className='add-to-cart'>ADD TO CART</button></div>
                     </div>
                     <div onClick={() => { this.handleCloseProduct() }} className='exit'><i className="fas fa-times"></i></div>
                 </div>
