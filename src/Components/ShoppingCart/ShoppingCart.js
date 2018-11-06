@@ -95,8 +95,8 @@ class ShoppingCart extends Component {
             console.log(res)
             this.handleShoppingCart()
             this.setState({
-                subTotal: this.state,
-                checkOutTotal: this.state
+                subTotal: 0,
+                checkOutTotal: 0
             })
         })
     }
